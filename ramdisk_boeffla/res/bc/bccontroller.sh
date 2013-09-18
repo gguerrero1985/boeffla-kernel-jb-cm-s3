@@ -61,13 +61,13 @@ if [ "lov_presets" == "$1" ]; then
 	echo "Gov: lulzactiveq / no profile"
 	echo "^Sched: row / row"
 	echo "^CPU: 1600 / no uv"
-	echo "^GPU: 440-700 / +50mV;"
+	echo "^GPU: 440-700 / +25mV;"
 	
 	echo "Power~"
 	echo "Gov: zzmoove / zzmoove-performance"
 	echo "^Sched: row / row"
 	echo "^CPU: 1500 / no uv"
-	echo "^GPU: 266-533 / no uv;"
+	echo "^GPU: 266-600 / no uv;"
 	
 	echo "Standard~"
 	echo "Gov: pegasusq / no profile"
@@ -101,14 +101,14 @@ if [ "conf_presets" == "$1" ]; then
 		echo "lulzactiveq;None;"
 		echo "row;row;"
 		echo "1600000;None;"
-		echo "440/533/600/700;overvolt +50mV"
+		echo "440/533/600/640/700;overvolt +25mV"
 	fi
 	if [ "Power" ==  "$2" ]; then
 		# gov, gov prof, sched int, sched ext, cpu max, cpu uv, gpu freq, gpu uv
 		echo "zzmoove;zzmoove - performance;"
 		echo "row;row;"
 		echo "1500000;None;"
-		echo "266/350/440/533;None"
+		echo "266/350/440/533/600;None"
 	fi
 	if [ "Standard" ==  "$2" ]; then
 		# gov, gov prof, sched int, sched ext, cpu max, cpu uv, gpu freq, gpu uv
@@ -164,7 +164,7 @@ if [ "conf_gpu_freq" == "$1" ]; then
 		echo "350;440;533;600;640"
 	fi
 	if [ "440/533/600/640/700" == "$2" ]; then
-		echo "440;533;600;640/700"
+		echo "440;533;600;640;700"
 	fi
 	exit 0
 fi
