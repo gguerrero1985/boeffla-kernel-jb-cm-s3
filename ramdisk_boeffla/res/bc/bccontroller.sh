@@ -16,7 +16,7 @@ fi
 # *******************
 
 if [ "lov_gov_profiles" == "$1" ]; then
-	echo "pegasusq - boeffla moderate;pegasusq - boeffla battery saving;pegasusq - boeffla 1 core;pegasusq - boeffla 2 cores;pegasusq - speedmod;zzmoove - optimal;zzmoove - battery;zzmoove - battery yank;zzmoove - battery extreme yank;zzmoove - performance"
+	echo "pegasusq - boeffla moderate;pegasusq - boeffla battery saving;pegasusq - boeffla 1 core;pegasusq - boeffla 2 cores;pegasusq - speedmod;zzmoove - optimal;zzmoove - battery;zzmoove - battery yank;zzmoove - battery extreme yank;zzmoove - performance;pegasusqplus - balanced;pegasusqplus - battery"
 	exit 0
 fi
 
@@ -408,7 +408,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "37" > /sys/devices/system/cpu/cpufreq/pegasusq/freq_step
 	fi
 
-
 	if [ "pegasusq - boeffla 1 core" == "$2" ]; then
 		# cpu2
 		echo "1400000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_1_1
@@ -523,6 +522,129 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "85" > /sys/devices/system/cpu/cpufreq/pegasusq/up_threshold
 		echo "37" > /sys/devices/system/cpu/cpufreq/pegasusq/freq_step
 
+	fi
+
+	if [ "pegasusqplus - standard" == "$2" ]; then
+		echo "30" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_down_rate
+		echo "2" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_count
+		echo "30" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_down_threshold
+		echo "65" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_up_threshold
+		echo "16" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_up_rate
+		echo "5" > /sys/devices/system/cpu/cpufreq/pegasusqplus/down_differential
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/dvfs_debug
+		echo "1200000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_for_fast_down
+		echo "400000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_for_responsiveness
+		echo "37" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_step
+		echo "13" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_step_dec
+		echo "500000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_1_1
+		echo "200000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_2_0
+		echo "500000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_2_1
+		echo "200000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_3_0
+		echo "700000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_3_1
+		echo "400000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_4_0
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_lock
+		echo "175" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_1_1
+		echo "175" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_2_0
+		echo "275" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_2_1
+		echo "275" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_3_0
+		echo "375" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_3_1
+		echo "375" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_4_0
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/ignore_nice_load
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_enable
+		echo "20" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_kick_in_down_delay
+		echo "500000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_kick_in_freq
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/max_cpu_lock
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/min_cpu_lock
+		echo "1" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_down_factor
+		echo "30000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_rate
+		echo "10000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_rate_min
+		echo "1" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_nr_cpus~1
+		echo "82" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold
+		echo "95" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_at_fast_down
+		echo "40" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_at_min_freq
+		echo "6" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_diff
+	fi
+
+	if [ "pegasusqplus - balanced" == "$2" ]; then
+		echo "30" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_down_rate
+		echo "2" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_count
+		echo "52" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_down_threshold
+		echo "70" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_up_threshold
+		echo "16" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_up_rate
+		echo "5" > /sys/devices/system/cpu/cpufreq/pegasusqplus/down_differential
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/dvfs_debug
+		echo "1200000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_for_fast_down
+		echo "400000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_for_responsiveness
+		echo "4" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_step
+		echo "2" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_step_dec
+		echo "700000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_1_1
+		echo "200000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_2_0
+		echo "700000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_2_1
+		echo "300000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_3_0
+		echo "900000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_3_1
+		echo "400000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_4_0
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_lock
+		echo "275" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_1_1
+		echo "275" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_2_0
+		echo "375" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_2_1
+		echo "375" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_3_0
+		echo "450" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_3_1
+		echo "450" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_4_0
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/ignore_nice_load
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_enable
+		echo "20" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_kick_in_down_delay
+		echo "500000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_kick_in_freq
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/max_cpu_lock
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/min_cpu_lock
+		echo "1" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_down_factor
+		echo "32000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_rate
+		echo "10000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_rate_min
+		echo "1" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_nr_cpus~1
+		echo "90" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold
+		echo "95" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_at_fast_down
+		echo "55" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_at_min_freq
+		echo "7" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_diff
+	fi
+
+	if [ "pegasusqplus - battery" == "$2" ]; then
+		echo "30" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_down_rate
+		echo "2" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_count
+		echo "52" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_down_threshold
+		echo "70" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_online_bias_up_threshold
+		echo "16" > /sys/devices/system/cpu/cpufreq/pegasusqplus/cpu_up_rate
+		echo "5" > /sys/devices/system/cpu/cpufreq/pegasusqplus/down_differential
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/dvfs_debug
+		echo "1200000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_for_fast_down
+		echo "400000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_for_responsiveness
+		echo "4" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_step
+		echo "2" > /sys/devices/system/cpu/cpufreq/pegasusqplus/freq_step_dec
+		echo "900000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_1_1
+		echo "700000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_2_0
+		echo "1000000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_2_1
+		echo "800000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_3_0
+		echo "1400000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_3_1
+		echo "1100000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_freq_4_0
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_lock
+		echo "300" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_1_1
+		echo "300" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_2_0
+		echo "375" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_2_1
+		echo "375" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_3_0
+		echo "450" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_3_1
+		echo "450" > /sys/devices/system/cpu/cpufreq/pegasusqplus/hotplug_rq_4_0
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/ignore_nice_load
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_enable
+		echo "20" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_kick_in_down_delay
+		echo "500000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/lcdfreq_kick_in_freq
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/max_cpu_lock
+		echo "0" > /sys/devices/system/cpu/cpufreq/pegasusqplus/min_cpu_lock
+		echo "1" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_down_factor
+		echo "32000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_rate
+		echo "10000" > /sys/devices/system/cpu/cpufreq/pegasusqplus/sampling_rate_min
+		echo "1" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_nr_cpus~1
+		echo "90" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold
+		echo "95" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_at_fast_down
+		echo "55" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_at_min_freq
+		echo "7" > /sys/devices/system/cpu/cpufreq/pegasusqplus/up_threshold_diff
 	fi
 
 	if [ "zzmoove - standard" == "$2" ]; then
